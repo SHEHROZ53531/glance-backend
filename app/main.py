@@ -4,6 +4,7 @@ from app.core.config import settings
 from app.api.v1.auth import router as auth_router
 from app.api.v1.patients import router as patients_router
 from app.api.v1.assessments import router as assessments_router
+from app.api.v1.screening import router as screening_router
 
 app = FastAPI(title=settings.PROJECT_NAME, version="1.0.0")
 
@@ -18,6 +19,7 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(patients_router)
 app.include_router(assessments_router)
+app.include_router(screening_router)
 
 @app.get("/v1/health")
 def health_check():
